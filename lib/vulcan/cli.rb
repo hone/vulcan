@@ -115,7 +115,7 @@ update the build server
 
     Dir.mktmpdir do |dir|
       Dir.chdir(dir) do
-        api_key = %x{ env BUNDLE_GEMFILE= heroku credentials }
+        api_key = %x{ env BUNDLE_GEMFILE= heroku credentials }.chomp
 
         system "git init"
         system "git remote add heroku git@heroku.com:#{config[:app]}.git"
